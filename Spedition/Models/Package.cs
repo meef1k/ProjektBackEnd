@@ -9,8 +9,10 @@ namespace Spedition.Models
         [Key]
         public int id_package { get; set; }
         [ForeignKey("Truck")]
+        [Display(Name = "Truck")]
         public int id_truck { get; set; }
         [ForeignKey("Trailer")]
+        [Display(Name = "Trailer")]
         public int id_trailer { get; set; }
         public virtual Truck Truck { get; set; }
         public virtual Trailer Trailer { get; set; }

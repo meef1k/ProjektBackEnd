@@ -8,7 +8,10 @@ namespace Spedition.Models
         [Key]
         public int id_spedition { get; set; }
         [Required]
+        [Display(Name = "Start place")]
         public string start_place { get; set; }
+        [Required]
+        [Display(Name = "Destination place")]
         public string end_place { get; set; }
         [ForeignKey("Package")]
         public int PackageId { get; set; }
