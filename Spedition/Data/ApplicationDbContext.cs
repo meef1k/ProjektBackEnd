@@ -12,6 +12,7 @@ namespace Spedition.Data
 
         public DbSet<Truck> Truck { get; set; }
         public DbSet<Trailer> Trailer { get; set; }
-        public DbSet<Package> Package { get; set; }
+        public DbSet<Driver> Driver { get; set; }
+        public DbSet<Speditions> Spedition { get; set; }
     }
 }

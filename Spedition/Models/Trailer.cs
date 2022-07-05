@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Spedition.Models
@@ -19,6 +20,6 @@ namespace Spedition.Models
         [Required]
         [Display(Name = "Number plate")]
         public string trailer_plate { get; set; }
-        public virtual Package Package { get; set; }
+        public virtual Speditions Speditions { get; set; }
     }
 }

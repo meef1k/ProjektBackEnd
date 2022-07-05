@@ -1,47 +1,47 @@
-﻿@model Truck
+﻿@model Trailer
 
 @{
-    ViewData["Title"] = "Delete truck";
+    ViewData["Title"] = "Delete trailer";
 }
 
 <form method="post" asp-action="Delete">
-    <input asp-for="id_truck" hidden />
+    <input asp-for="id_trailer" hidden />
     <div class="border p-3">
         <div class="form-group row">
-            <h2 class="text-info pl-3">Delete Truck</h2>
+            <h2 class="text-info pl-3">Delete Trailer</h2>
         </div>
         <div class="row">
             <div class="col-8">
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="truck_number"></label>
+                        <label asp-for="trailer_number"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="truck_number" disabled class="form-control" />
+                        <input asp-for="trailer_number" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="truck_manufacturer"></label>
+                        <label asp-for="trailer_manufacturer"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="truck_manufacturer" disabled class="form-control" />
+                        <input asp-for="trailer_manufacturer" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="truck_model"></label>
+                        <label asp-for="trailer_model"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="truck_model" disabled class="form-control" />
+                        <input asp-for="trailer_model" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="truck_plate"></label>
+                        <label asp-for="trailer_plate"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="truck_plate" disabled class="form-control" />
+                        <input asp-for="trailer_plate" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
