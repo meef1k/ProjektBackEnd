@@ -14,5 +14,17 @@ namespace Spedition.Data
         public DbSet<Trailer> Trailer { get; set; }
         public DbSet<Driver> Driver { get; set; }
         public DbSet<Speditions> Spedition { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Speditions>(x =>
+            {
+                x.HasOne(a => a.Driver).WithMany(b => b.Speditionsa).HasForeignKey(c => c.DriverId).OnDelete(DeleteBehavior.NoAction);
+                x.HasOne(a => a.Truck).WithMany(b => b.Speditionsa).HasForeignKey(c => c.TruckId).OnDelete(DeleteBehavior.NoAction);
+                x.HasOne(a => a.Trailer).WithMany(b => b.Speditionsa).HasForeignKey(c => c.TrailerId).OnDelete(DeleteBehavior.NoAction);
+            });
+
+        }
     }
 }
