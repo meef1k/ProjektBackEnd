@@ -25,6 +25,6 @@ namespace Spedition.Models
         [Display(Name = "Number plate")]
         public string trailer_plate { get; set; }
 
-        public List<Speditions> Speditionsa { get; set; } = new List<Speditions>();
+        public virtual Speditions Speditions { get; set; }
     }
 }

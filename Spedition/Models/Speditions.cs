@@ -18,15 +18,15 @@ namespace Spedition.Models
         public string end_place { get; set; }
 
         [ForeignKey("Truck")]
-        public Truck Truck { get; set; }
         public int TruckId { get; set; }
 
         [ForeignKey("Trailer")]
-        public Trailer Trailer { get; set; }
         public int TrailerId { get; set; }
 
         [ForeignKey("Driver")]
-        public Driver Driver { get; set; }
         public int DriverId { get; set; }
+        public virtual ICollection<Truck> Trucks { get; set; }
+        public virtual ICollection<Trailer> Trailers { get; set; }
+        public virtual ICollection<Driver> Drivers { get; set; }
     }
 }

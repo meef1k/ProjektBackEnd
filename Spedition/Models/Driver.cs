@@ -20,6 +20,6 @@ namespace Spedition.Models
         [Display(Name = "City")]
         public string city { get; set; }
 
-        public List<Speditions> Speditionsa { get; set; } = new List<Speditions>();
+        public virtual Speditions Speditions { get; set; }
     }
 }
