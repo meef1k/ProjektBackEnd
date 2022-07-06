@@ -10,9 +10,12 @@
             <h2 class="text-primary">Speditions list</h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-controller="Speditions" asp-action="Create" class="btn btn-primary">
-                Add new spedition
-            </a>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a asp-controller="Speditions" asp-action="Create" class="btn btn-primary">
+                    Add new spedition
+                </a>
+            }
         </div>
     </div>
     <br /><br />
@@ -54,15 +57,19 @@
                     <td width="15%">@Html.DisplayFor(modelItem => obj.Driver.driver_name)</td>
                     <td class="text-center">
                         <div class="w-75 vtn-group" role="group">
+                            
                             <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Details" class="btn btn-primary">
                                 Details
                             </a>
-                            <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Edit" class="btn btn-success">
-                                Edit
-                            </a>
-                            <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Delete" class="btn btn-danger">
-                                Delete
-                            </a>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Edit" class="btn btn-success">
+                                    Edit
+                                </a>
+                                <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Delete" class="btn btn-danger">
+                                    Delete
+                                </a>
+                            }
                         </div>
                     </td>
                 </tr>

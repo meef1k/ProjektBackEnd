@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Spedition.Data;
 using Spedition.Models;
+using Spedition.Static;
 
 namespace Spedition.Controllers
 {
+    [Authorize]
     public class SpeditionsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -44,6 +47,7 @@ namespace Spedition.Controllers
 
             return View(speditions);
         }
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult Create()
         {
             ViewData["DriverId"] = new SelectList(_context.Driver, "id_driver", "driver_name");
@@ -67,6 +71,7 @@ namespace Spedition.Controllers
             ViewData["TruckId"] = new SelectList(_context.Truck, "id_truck", "truck_number", speditions.TruckId);
             return View(speditions);
         }
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -120,6 +125,7 @@ namespace Spedition.Controllers
             return View(speditions);
         }
 
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

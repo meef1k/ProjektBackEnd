@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Spedition.Data;
 using Spedition.Models;
+using Spedition.Static;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Spedition.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class TrailerController : Controller
     {
         private readonly ApplicationDbContext _db;

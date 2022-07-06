@@ -58,8 +58,9 @@ namespace Spedition
             app.UseRouting();
             app.UseSession();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
