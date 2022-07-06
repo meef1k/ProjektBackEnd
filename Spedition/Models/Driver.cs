@@ -9,17 +9,17 @@ namespace Spedition.Models
         public int id_driver { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
-        public string name { get; set; }
+        [Display(Name = "Full name")]
+        public string driver_name { get; set; }
 
         [Required]
-        [Display(Name = "Surname")]
-        public string surname { get; set; }
+        [Display(Name = "Driver number")]
+        public string driver_number { get; set; }
 
         [Required]
         [Display(Name = "City")]
-        public string city { get; set; }
+        public string driver_city { get; set; }
 
-        public virtual Speditions Speditions { get; set; }
+        public virtual ICollection<Driver> Drivers { get; set; }
     }
 }
