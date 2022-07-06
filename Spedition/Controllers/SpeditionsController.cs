@@ -19,14 +19,12 @@ namespace Spedition.Controllers
             _context = context;
         }
 
-        // GET: Speditions
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Speditions.Include(s => s.Driver).Include(s => s.Trailer).Include(s => s.Truck);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Speditions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,8 +44,6 @@ namespace Spedition.Controllers
 
             return View(speditions);
         }
-
-        // GET: Speditions/Create
         public IActionResult Create()
         {
             ViewData["DriverId"] = new SelectList(_context.Driver, "id_driver", "driver_name");
@@ -56,9 +52,6 @@ namespace Spedition.Controllers
             return View();
         }
 
-        // POST: Speditions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_spedition,start_place,end_place,TruckId,TrailerId,DriverId")] Speditions speditions)
@@ -74,8 +67,6 @@ namespace Spedition.Controllers
             ViewData["TruckId"] = new SelectList(_context.Truck, "id_truck", "truck_number", speditions.TruckId);
             return View(speditions);
         }
-
-        // GET: Speditions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,9 +85,6 @@ namespace Spedition.Controllers
             return View(speditions);
         }
 
-        // POST: Speditions/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id_spedition,start_place,end_place,TruckId,TrailerId,DriverId")] Speditions speditions)
@@ -132,7 +120,6 @@ namespace Spedition.Controllers
             return View(speditions);
         }
 
-        // GET: Speditions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,7 +140,6 @@ namespace Spedition.Controllers
             return View(speditions);
         }
 
-        // POST: Speditions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

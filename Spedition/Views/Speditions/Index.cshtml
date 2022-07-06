@@ -1,59 +1,77 @@
-﻿@model IEnumerable<Spedition.Models.Speditions>
+﻿@model IEnumerable<Speditions>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Speditions";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.start_place)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.end_place)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Truck)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trailer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Driver)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.start_place)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.end_place)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Truck.truck_manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trailer.trailer_manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Driver.driver_city)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_spedition">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_spedition">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_spedition">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container p-3">
+    <div class="row pt-6">
+        <div class="col-6">
+            <h2 class="text-primary">Speditions list</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Speditions" asp-action="Create" class="btn btn-primary">
+                Add new spedition
+            </a>
+        </div>
+    </div>
+    <br /><br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-brodered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Start place
+                    </th>
+                    <th>
+                        End place
+                    </th>
+                    <th>
+                        Truck
+                    </th>
+                    <th>
+                        Trailer 
+                    </th>
+                    <th>
+                        Driver number
+                    </th>
+                    <th>
+                        Driver
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                <tr>
+                    <td width="10%">@Html.DisplayFor(modelItem => obj.start_place)</td>
+                    <td width="10%">@Html.DisplayFor(modelItem => obj.end_place)</td>
+                    <td width="10%">@Html.DisplayFor(modelItem => obj.Truck.truck_number)</td>
+                    <td width="10%">@Html.DisplayFor(modelItem => obj.Trailer.trailer_number)</td>
+                    <td width="10%">@Html.DisplayFor(modelItem => obj.Driver.driver_number)</td>
+                    <td width="15%">@Html.DisplayFor(modelItem => obj.Driver.driver_name)</td>
+                    <td class="text-center">
+                        <div class="w-75 vtn-group" role="group">
+                            <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Details" class="btn btn-primary">
+                                Details
+                            </a>
+                            <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Edit" class="btn btn-success">
+                                Edit
+                            </a>
+                            <a asp-controller="Speditions" asp-route-Id="@obj.id_spedition" asp-action="Delete" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>There are no speditions in database</p>
+    }
+</div>

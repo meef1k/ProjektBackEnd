@@ -4,48 +4,97 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Speditions</h4>
-    <hr />
+<div class="border p-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group row">
+        <h2 class="text-info pl-3">Delete Spedition</h2>
+    </div>
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.start_place)
+            Start place
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.start_place)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.end_place)
+            End place
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.end_place)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Truck)
+            Truck manufacturer
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Truck.truck_manufacturer)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Trailer)
+            Truck model
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Truck.truck_model)
+        </dd class>
+        <dt class = "col-sm-2">
+            Truck number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Truck.truck_number)
+        </dd class>
+        <dt class = "col-sm-2">
+            Truck number plate
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Truck.truck_plate)
+        </dd class>
+        <dt class = "col-sm-2">
+            Trailer manufacturer
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Trailer.trailer_manufacturer)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Driver)
+            Trailer model
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Driver.driver_city)
+            @Html.DisplayFor(model => model.Trailer.trailer_model)
+        </dd class>
+        <dt class = "col-sm-2">
+            Trailer number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Trailer.trailer_number)
+        </dd class>
+        <dt class = "col-sm-2">
+            Trailer number plate
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Trailer.trailer_plate)
+        </dd class>
+        <dt class = "col-sm-2">
+            Driver number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Driver.driver_number)
+        </dd class>
+        <dt class = "col-sm-2">
+            Driver name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Driver.driver_name)
         </dd class>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="id_spedition" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <div class="col-8 offset-4 row">
+            <div class="col">
+                <input type="submit" class="btn btn-danger w-100" value="Delete" />
+            </div>
+            <div class="col">
+                <a asp-action="Index" class="btn btn-info w-100">
+                    Return
+                </a>
+            </div>
+        </div>
     </form>
 </div>
