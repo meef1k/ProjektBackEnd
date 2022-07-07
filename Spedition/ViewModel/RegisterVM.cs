@@ -4,21 +4,21 @@ namespace Spedition.ViewModel
 {
     public class RegisterVM
     {
-        [Display(Name = "Pełna nazwa")]
-        [Required(ErrorMessage = "Pełna nazwa jest wymagana")]
+        [Display(Name = "Full name")]
+        [Required(ErrorMessage = "Full name is required")]
         public string FullName { get; set; }
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "Email jest wymagany")]
+        [Required(ErrorMessage = "Email is required")]
         public string EmailAddress { get; set; }
-        [Display(Name = "Hasło")]
-        [Required(ErrorMessage = "Hasło jest wymagane")]
-        [RegularExpression(@"(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$&_/\*]).{6,18}", ErrorMessage = "Twoje hasło wymaga minimum 6 znaków, 1 dużej litery,1 małej litery, 1 cyfry oraz znaku specjalnego")]
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Password is required")]
+        [RegularExpression(@"(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$&_/\*]).{6,18}", ErrorMessage = "Password requires minimum 6 characters, 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Display(Name = "Potwierdź hasło")]
-        [Required(ErrorMessage = "Potwierdzenie hasła jest wymagane")]
+        [Display(Name = "Confirm your password")]
+        [Required(ErrorMessage = "Confirm your password is required")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Hasła nie są takie same")]
+        [Compare("Password", ErrorMessage = "Password are not the same")]
         public string ConfirmPassword { get; set; }
     }
 }

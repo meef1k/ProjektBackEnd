@@ -22,10 +22,18 @@ namespace Spedition.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Speditions.Include(s => s.Driver).Include(s => s.Trailer).Include(s => s.Truck);
-            return View(await applicationDbContext.ToListAsync());
+            var names = from m in _context.Speditions select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                names = _context.Speditions.Include(s => s.Driver).Include(s => s.Trailer).Include(s => s.Truck).Where(a => a.Driver.driver_name.Contains(searchString) || a.Driver.driver_number==searchString);
+            }
+            else
+            {
+                names = _context.Speditions.Include(s => s.Driver).Include(s => s.Trailer).Include(s => s.Truck);
+            }
+            return View(await names.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)

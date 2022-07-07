@@ -5,10 +5,10 @@ namespace Spedition.ViewModel
     public class LoginVM
     {
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "Email jest wymagany")]
+        [Required(ErrorMessage = "Email is required")]
         public string EmailAddress { get; set; }
-        [Display(Name = "Hasło")]
-        [Required(ErrorMessage = "Hasło jest wymagane")]
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

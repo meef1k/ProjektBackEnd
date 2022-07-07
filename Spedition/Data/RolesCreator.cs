@@ -25,7 +25,7 @@ namespace Spedition.Data
 
                 //Dodawanie użytkowników
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<User>>();
-                string adminUserEmail = "admin@projekt.com";
+                string adminUserEmail = "admin@admin.com";
                 var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
                 if (adminUser == null)
                 {
@@ -36,11 +36,11 @@ namespace Spedition.Data
                         Email = adminUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAdminUser, "Wsei@2022!");
+                    await userManager.CreateAsync(newAdminUser, "Kwakwa5!");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
                 }
 
-                string appUserEmail = "user@projekt.com";
+                string appUserEmail = "user@user.com";
                 var appUser = await userManager.FindByEmailAsync(appUserEmail);
                 if (appUser == null)
                 {
@@ -51,7 +51,7 @@ namespace Spedition.Data
                         Email = appUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAppUser, "Qwerty123!@");
+                    await userManager.CreateAsync(newAppUser, "Kwakwa5!");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             }
