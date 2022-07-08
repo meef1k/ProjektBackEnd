@@ -1,0 +1,16 @@
+1. Dodanie Entity Framework
+2. Utworzenie modeli
+3. Utworzenie bazy danych z tabelami
+4. Utworzenie kontrolów
+5. Utworzenie widoków
+6. Implementacja CRUD
+7. Stworzenie UI
+8. Dodanie Identity Framework
+9. Implementacja systemu logowania oraz rejestracji
+10. Dodanie ról user oraz admin
+11. Autoryzacja oraz autentykacja użytkownika
+12. Dodanie opcji wyszukiwania
+13. Ograniczenie dostępu do pewnych części aplikacji dla usera
+14. Dodanie UI dla admina z możliwością sprawdzenia aktualnych użytkowników
+15. Dodanie widoku sprawdzającego szczegóły zlecenia
+16. Zbudowanie wersji produkcyjnej (Docker)
