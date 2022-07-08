@@ -1,0 +1,15 @@
+Aplikacja służy do zarządzania firmą transportową i wydawania zleceń dla kierowców. Pozwala kierowcom sprawdzić swoje zlecenia poprzez wyszukanie swojego numeru kierowcy albo imienia i nazwiska. Spedytor może dodawać nowe pojazdy do bazy danych oraz nowych kierowców. Spedytor ma możliwość wydawania zleceń dla swoich kierowców.
+
+Aby uruchomić aplikację należy:
+  1. Pobrać program Docker i go zainstalować
+  2. Odpalić program Rider/Visual Studio i wpisać w terminalu polecenie: docker-compose up --build
+  3. Uruchomić kontener Spedition w aplikacji Docker
+  4. W przeglądarce wpisać localhost:8080
+  
+Aplikacja posiada dwa wbudowane konta
+Administrator:
+  e-mail: admin@admin.com
+  hasło: Kwakwa5!
+User:
+  e-mail: user@user.com
+  hasło: Kwakwa5!
