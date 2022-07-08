@@ -10,19 +10,19 @@ namespace Spedition.Models
         public int id_trailer { get; set; }
 
         [Required]
-        [Display(Name = "Number")]
+        [Display(Name = "Trailer Number")]
         public string trailer_number { get; set; }
 
         [Required]
-        [Display(Name = "Manufacturer")]
+        [Display(Name = "Trailer Manufacturer")]
         public string trailer_manufacturer { get; set; }
 
         [Required]
-        [Display(Name = "Model")]
+        [Display(Name = "Trailer Model")]
         public string trailer_model { get; set; }
 
         [Required]
-        [Display(Name = "Number plate")]
+        [Display(Name = "Trailer Number plate")]
         public string trailer_plate { get; set; }
 
         public virtual ICollection<Trailer> Trailers { get; set; }
